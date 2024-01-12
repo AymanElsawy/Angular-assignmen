@@ -1,0 +1,66 @@
+<div class="container-fluid container-md">
+  <div class="row">
+    <div class="col-9">
+      <h3 class="text-capitalize text-center m-3">
+        Discover Latest Courses on Angular
+      </h3>
+      <div class="d-flex justify-content-between">
+        <div class="mb-3">
+          <label for="" class="form-label">Search</label>
+          <input
+            type="text"
+            class="form-control"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder="Search"
+            [(ngModel)]="search"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Sort by </label>
+          <select
+            class="form-select"
+            [(ngModel)]="sortField"
+            aria-label="Default select example"
+          >
+            <option value="">All</option>
+            <option value="courseName">name</option>
+            <option value="actualPrice">price</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Items per pgae </label>
+          <select
+            [(ngModel)]="itemPerPage"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        @for (course of courses |paginate: { itemsPerPage: itemPerPage,
+        currentPage: p }| search: search | sortName: sortField| sortPrice:
+        sortField;track $index) {
+        <div class="col-12 col-sm-12 col-md-6 mt-2">
+          <app-course-card [course]="course"></app-course-card>
+        </div>
+        }@empty {
+        <h3 class="text-center">No courses found</h3>
+        }
+        <div class="d-flex mt-2 justify-content-center align-content-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <app-cart-widget></app-cart-widget>
+    </div>
+  </div>
+</div>

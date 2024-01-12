@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <div class="container">
+    <a
+      class="navbar-brand"
+      routerLink="/"
+      routerLinkActive="router-link-active"
+    >
+      <img src="assets/images/logo.jpeg" alt="logo" class="img-fluid" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list" style="font-size: 25px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId" appCloseMenu>
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0 fw-bold">
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-current="page"
+            >Courses
+            <i class="bi bi-book ms-1" style="font-size: 25px"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/wish-list"
+            routerLinkActive="active"
+            >wish list
+            <i class="bi bi-heart ms-1" style="font-size: 25px"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/cart"
+            routerLinkActive="active"
+            >cart
+            <i class="bi bi-cart ms-1" style="font-size: 25px"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/user"
+            routerLinkActive="active"
+            >profile
+            <i class="bi bi-person ms-1" style="font-size: 25px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

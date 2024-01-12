@@ -1,0 +1,8 @@
+.navbar{
+  background-color: #80BCBD !important;
+}
+.navbar img {
+  height: 70px;
+  width: 70px;
+  mix-blend-mode:  multiply;
+}

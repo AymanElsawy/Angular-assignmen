@@ -1,0 +1,19 @@
+<div class="card mt-3">
+  <div class="card-header text-center">Cart</div>
+  <div class="card-body">
+    @for (course of courses; track $index) {
+    <div class="d-flex justify-content-between mt-1">
+      <p class="card-text">{{ course.courseName }}</p>
+      <i class="bi bi-trash" (click)="removeFromCart(course)"></i>
+    </div>
+    }@empty {
+    <p class="card-text">No courses in cart</p>
+    } @if(totalPrice()){
+    <div class="card-footer">
+      <p class="card-text">
+        {{ totalPrice() }}
+      </p>
+    </div>
+    }
+  </div>
+</div>
