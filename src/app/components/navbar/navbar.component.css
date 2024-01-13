@@ -1,8 +1,16 @@
-.navbar{
-  background-color: #80BCBD !important;
+.navbar {
+  background-color: #80bcbd !important;
 }
 .navbar img {
   height: 70px;
   width: 70px;
-  mix-blend-mode:  multiply;
+  mix-blend-mode: multiply;
+}
+.navbar i {
+  font-size: 25px;
+}
+@media screen and (max-width: 575px) {
+  .box {
+    width: 120px;
+  }
 }

@@ -1,28 +1,54 @@
 <div class="card">
   <div class="card-body">
-    <h6 class="card-title">{{ course.courseName }}</h6>
-    <p class="card-subtitle mb-2 text-muted">
-      @if ( course.actualPrice !== discountPrice(course.actualPrice,
-      course.discountPercentage)) {
-      <del>{{ course.actualPrice }}</del>
+    <div class="d-flex justify-content-between">
+      <h6 class="card-title fw-bold">{{ course.courseName }}</h6>
+      <i
+        class="bi"
+        [ngClass]="{
+          'bi-star-fill': checkInWishList(),
+          'bi-star': checkInWishList() === false
+        }"
+        (click)="removeFromWishList(course)"
+      ></i>
+    </div>
+    <div class="card-text">
+      <p class="card-subtitle mb-2 text-muted">
+        @if ( course.actualPrice !== discountPrice(course.actualPrice,
+        course.discountPercentage)) {
+        <del class="d-block">price : {{ course.actualPrice }}</del>
+        <em>
+          price after discount :
+          {{ discountPrice(course.actualPrice, course.discountPercentage) }}
+        </em>
+        }@else {
+        <em>price : {{ course.actualPrice }}</em>
+        }
+      </p>
+
+      <p class="card-text"><strong>Author :</strong> {{ course.author }}</p>
+      <strong>Tags : </strong>
+      @for (tag of course.tags; track $index) {
+
+      <small>{{ tag }}{{ $last ? "" : " ," }}</small>
       }
-      <em>
-        {{ discountPrice(course.actualPrice, course.discountPercentage) }}
-      </em>
-    </p>
+    </div>
 
-    <p class="card-text"><strong>Author :</strong> {{ course.author }}</p>
-    <strong>Tags : </strong>
-    @for (tag of course.tags; track $index) {
-
-    <small>{{ tag }}{{ $last ? "" : " ," }}</small>
-    }
     <div
       class="card-footer d-flex flex-column flex-xl-row justify-content-between"
     >
-      <button class="btn btn-primary text-capitalize" (click)="addToCart(course)">Add to cart</button>
-      <button class="btn btn-primary mt-1 mt-xl-0 text-capitalize">
-        Add to wish list
+      <button
+        class="btn btn-primary text-capitalize"
+        (click)="addToCart(course)"
+      >
+        Add to cart
+      </button>
+      <button
+        class="btn btn-primary mt-1 mt-xl-0 text-capitalize"
+        (click)="
+          inWishList ? removeFromWishList(course) : addToWishList(course)
+        "
+      >
+        {{ inWishList ? "Remove from" : "Add to" }} wish list
       </button>
     </div>
   </div>

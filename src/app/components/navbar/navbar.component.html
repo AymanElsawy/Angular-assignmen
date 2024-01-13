@@ -16,7 +16,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="bi bi-list" style="font-size: 25px"></i>
+      <i class="bi bi-list"></i>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId" appCloseMenu>
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0 fw-bold">
@@ -27,8 +27,11 @@
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             aria-current="page"
-            >Courses
-            <i class="bi bi-book ms-1" style="font-size: 25px"></i>
+          >
+            <div class="d-flex justify-content-between justify-content-sm-start align-items-center box">
+              <span>Courses</span>
+              <i class="bi bi-book ms-1"></i>
+            </div>
           </a>
         </li>
         <li class="nav-item">
@@ -36,8 +39,10 @@
             class="nav-link text-capitalize"
             routerLink="/wish-list"
             routerLinkActive="active"
-            >wish list
-            <i class="bi bi-heart ms-1" style="font-size: 25px"></i>
+            ><div class="d-flex justify-content-between justify-content-sm-start align-items-center box">
+              <span>wish list</span>
+              <i class="bi bi-heart ms-1"></i>
+            </div>
           </a>
         </li>
         <li class="nav-item">
@@ -45,8 +50,10 @@
             class="nav-link text-capitalize"
             routerLink="/cart"
             routerLinkActive="active"
-            >cart
-            <i class="bi bi-cart ms-1" style="font-size: 25px"></i>
+            ><div class="d-flex justify-content-between justify-content-sm-start align-items-center box">
+              <span>cart</span>
+              <i class="bi bi-cart ms-1"></i>
+            </div>
           </a>
         </li>
         <li class="nav-item">
@@ -54,8 +61,11 @@
             class="nav-link text-capitalize"
             routerLink="/user"
             routerLinkActive="active"
-            >profile
-            <i class="bi bi-person ms-1" style="font-size: 25px"></i>
+            >
+            <div class="d-flex justify-content-between justify-content-sm-start align-items-center box">
+              <span>profile</span>
+              <i class="bi bi-person ms-1"></i>
+            </div>
           </a>
         </li>
       </ul>
