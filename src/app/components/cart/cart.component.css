@@ -1,0 +1,7 @@
+i.bi-trash:hover {
+  color: red;
+}
+i.bi-star:hover {
+  color: orange;
+  position: relative;
+}

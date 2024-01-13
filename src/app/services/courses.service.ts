@@ -47,6 +47,14 @@ export class CoursesService {
   removeFromCart(course: Course) {
     this.coursesInCart = this.coursesInCart.filter(c => c.courseName !== course.courseName); // remove course
     this.courseToCart.next(this.coursesInCart); // update subject
+    this.cooki.set('cart', JSON.stringify(this.coursesInCart)); // store courses in cart in cookie service
+  }
+
+  //empty cart
+  emptyCart() {
+    this.coursesInCart = []; // empty cart
+    this.courseToCart.next(this.coursesInCart); // update subject
+    this.cooki.delete('cart'); // delete cart from cookie
   }
 
   // add course to wish list
@@ -66,5 +74,6 @@ export class CoursesService {
   removeFromWishList(course: Course) {
     this.coursesInWishList = this.coursesInWishList.filter(c => c.courseName !== course.courseName); // remove course
     this.courseToWishList.next(this.coursesInWishList); // update subject
+    this.cooki.set('wish', JSON.stringify(this.coursesInCart)); // store courses in cart in cookie service
   }
 }
