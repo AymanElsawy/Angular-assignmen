@@ -1,0 +1,7 @@
+i.bi-trash:hover {
+  color: red;
+}
+i.bi-cart:hover {
+  color: orange;
+  position: relative;
+}

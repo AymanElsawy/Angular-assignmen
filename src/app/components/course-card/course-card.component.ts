@@ -43,14 +43,10 @@ export class CourseCardComponent {
   addToWishList(course: Course) {
     this.coursesService.addToWishList(course); // add course to wish list
     this.toasterService.success('Course successfully added in the wish list', 'Success');
-
-    this.wishList.push(course);
   }
   removeFromWishList(course: Course) {
     this.coursesService.removeFromWishList(course); // remove course from wish list
     this.toasterService.success('Course successfully removed from the wish list', 'Success');
-
-    this.wishList = this.wishList.filter(c => c.courseName !== course.courseName);
   }
   checkInWishList() {
    return this.inWishList = this.wishList.some(c => c.courseName === this.course.courseName);

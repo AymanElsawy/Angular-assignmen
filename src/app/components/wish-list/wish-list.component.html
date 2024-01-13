@@ -1,0 +1,54 @@
+<div class="container">
+  <h3 class="text-center fw-bold text-capitalize mt-3 text-primary">wish list</h3>
+  <div class="table-responsive mt-5">
+    @if ((wishListCourses.length !== 0)) {
+    <table class="table table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (course of wishListCourses; track $index ) {
+        <tr class="">
+          <td scope="row">{{ $index + 1 }}</td>
+          <td>{{ course.courseName }}</td>
+          <td>
+            @if ( course.actualPrice !== discountPrice(course.actualPrice,
+            course.discountPercentage)) {
+            <del>{{ course.actualPrice }}</del>
+            <span class="d-block">{{
+              discountPrice(course.actualPrice, course.discountPercentage)
+            }}</span>
+            }@else {
+            <span>{{ course.actualPrice }}</span>
+            }
+          </td>
+          <td>
+            <i
+              title="delete"
+              class="bi bi-trash"
+              (click)="removeFromWishList(course)"
+            ></i>
+            <i
+              title="cart"
+              class="bi bi-cart ms-3"
+              (click)="moveToCart(course)"
+            ></i>
+          </td>
+        </tr>
+        }
+        <tr>
+        </tr>
+      </tbody>
+    </table>
+    } @else { @defer () {
+    <div class="alert alert-danger" role="alert">No courses in cart</div>
+    } }
+  </div>
+</div>
+
+
