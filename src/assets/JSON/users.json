@@ -1,0 +1,14 @@
+[
+  {
+    "displayName": "Ayman Khalifa",
+    "firstName": "Ayman",
+    "lastName": "Khalifa",
+    "password": "password",
+    "aboutYourSelf": "data",
+    "userType": "student",
+    "userExpreince": "0-5",
+    "expertise": "frontend",
+    "role": "dataa",
+    "photo": "assets/images/user.webp"
+  }
+]

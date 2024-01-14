@@ -17,12 +17,13 @@ export const routes: Routes = [
     path: 'wish-list',
     loadComponent: () => import('./components/wish-list/wish-list.component').then(m => m.WishListComponent)
   },
+
+  {
+    path: 'user',
+    loadComponent: () => import('./components/user-profile/user-profile.component').then(m => m.UserProfileComponent)
+  },
   {
     path: 'details/:id',
     loadComponent: () => import('./components/course-details/course-details.component').then(m => m.CourseDetailsComponent)
-  },
-  {
-    path: 'user',
-    loadChildren: () => import('./components/user-profile/user-profile.component').then(m => m.UserProfileComponent)
   }
 ];
