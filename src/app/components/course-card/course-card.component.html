@@ -1,14 +1,16 @@
-<div class="card">
+<div class="card" >
   <div class="card-body">
     <div class="d-flex justify-content-between">
-      <h6 class="card-title fw-bold">{{ course.courseName }}</h6>
+      <h6 class="card-title fw-bold" (click)="courseDetails(course)">{{ course.courseName }}
+      <i class="bi bi-arrow-right"></i>
+      </h6>
       <i
         class="bi"
         [ngClass]="{
           'bi-star-fill': checkInWishList(),
           'bi-star': checkInWishList() === false
         }"
-        (click)="removeFromWishList(course)"
+        (click)="checkInWishList() ? removeFromWishList(course) : addToWishList(course)"
       ></i>
     </div>
     <div class="card-text">

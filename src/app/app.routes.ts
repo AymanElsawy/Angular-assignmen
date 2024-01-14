@@ -16,5 +16,9 @@ export const routes: Routes = [
   {
     path: 'wish-list',
     loadComponent: () => import('./components/wish-list/wish-list.component').then(m => m.WishListComponent)
+  },
+  {
+    path: 'details/:id',
+    loadComponent: () => import('./components/course-details/course-details.component').then(m => m.CourseDetailsComponent)
   }
 ];

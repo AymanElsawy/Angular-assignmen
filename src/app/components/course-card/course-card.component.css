@@ -1,6 +1,9 @@
-.bi-star-fill{
+.bi-star-fill {
   color: orange;
 }
-.card{
+.card {
   height: 288px;
+}
+h6 {
+  cursor: pointer;
 }

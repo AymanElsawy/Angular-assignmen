@@ -17,13 +17,14 @@ export class CoursesService {
   //init
   coursesInCartCookies = this.cooki.get('cart') ? JSON.parse(this.cooki.get('cart')) : [];// get courses in cart from cookies or empty array
   coursesInWishListCookies = this.cooki.get('wish') ? JSON.parse(this.cooki.get('wish')) : []; // get courses in wish list from cookies or empty array
-
+  courseDetailsInCookies = this.cooki.get('details') ? JSON.parse(this.cooki.get('details')) : {}; // get course details from cookies or empty object
   private coursesInCart: Course[] = this.coursesInCartCookies;
   courseToCart = new BehaviorSubject<Course[]>(this.coursesInCart); // subject for courses in cart
 
   private coursesInWishList: Course[] = this.coursesInWishListCookies;
   courseToWishList = new BehaviorSubject<Course[]>(this.coursesInWishList); // subject for courses in wish list
 
+  courseDetails = new BehaviorSubject<Course>(this.courseDetailsInCookies); // subject for course details
 
   // get all courses
   getAllCourses(): Observable<Course[]> {
