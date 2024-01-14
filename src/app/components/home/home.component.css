@@ -1,3 +1,6 @@
 .card-footer {
   background-color: transparent;
 }
+ .my-pagination ::ng-deep .ngx-pagination .current {
+    background: #80bcbd;
+  }
