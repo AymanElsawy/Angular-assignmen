@@ -11,6 +11,7 @@ export const routes: Routes = [
   {
     path: 'cart',
     // component:CartComponent
+    //auth guard !
     loadComponent: () => import('./components/cart/cart.component').then(m => m.CartComponent)
   },
   {
@@ -20,6 +21,7 @@ export const routes: Routes = [
 
   {
     path: 'user',
+    //auth guard !
     loadComponent: () => import('./components/user-profile/user-profile.component').then(m => m.UserProfileComponent)
   },
   {

@@ -5,6 +5,7 @@ import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 import { Course } from '../../models/course.interface';
 
 import { CommonModule, DatePipe } from '@angular/common';
+import { Subscription, interval, map } from 'rxjs';
 
 @Component({
   selector: 'app-course-details',
@@ -23,13 +24,41 @@ export class CourseDetailsComponent {
   @ViewChild('frame', { static: true }) frame!: ElementRef; // Video
   @ViewChild('btn', { static: true }) btn!: ElementRef; // Play button
 
+  currentDate!: Date;
+  // endDate = new Date(2024, 1, 15);
+  // dateDifference = 0;
+  // hours = 0;
+  // minutes = 0;
+  // seconds = 0;
+  // timerSubscription!: Subscription ;
+
+
   private coursesService = inject(CoursesService);
   private renderer = inject(Renderer2); // Inject renderer
 
   ngOnInit() {
     this.getCourseDetails(); // Get course details
+    //this makes memory lake
 
+
+    // this.calcEndDate();
+    // const timer = interval(1000);
+    //  this.timerSubscription = timer.pipe(map(() => this.calcEndDate())).subscribe()
   }
+
+  // ngOnDestroy() {
+  //   if (this.timerSubscription) {
+  //     this.timerSubscription.unsubscribe();
+  //   }
+  // }
+  // calcEndDate() {
+  //   this.currentDate = new Date();
+  //   this.dateDifference = this.endDate.getTime() - this.currentDate.getTime();
+  //   this.hours = Math.floor(this.dateDifference / (1000 * 60 * 60) % 24);
+  //   this.minutes = Math.floor((this.dateDifference % (1000 * 60 * 60)) / (1000 * 60));
+  //   this.seconds = Math.floor((this.dateDifference % (1000 * 60)) / 1000);
+
+  // }
 
 
 
